@@ -2,6 +2,12 @@
 ---
 - hosts: dev
   tasks:
+  - name: Run apt upgrade
+    apt:
+     upgrade: "yes"
+     update_cache: yes
+     cache_valid_time: 432000
+
    - name: Install add-apt-repostory
      become: yes
      apt: name=software-properties-common state=latest
